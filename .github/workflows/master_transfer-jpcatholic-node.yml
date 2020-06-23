@@ -6,10 +6,8 @@ on:
       - master
 
 jobs:
-build:
-runs-on: ubuntu-latest
-defaults:
-
-  steps:
-    -name: Build docker image
-     run: docker build . --file Dockerfile
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Build docker image
+      run: docker build . --file Dockerfile
