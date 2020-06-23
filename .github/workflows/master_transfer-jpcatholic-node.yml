@@ -6,19 +6,10 @@ on:
       - master
 
 jobs:
-  build-and-deploy:
-    runs-on: ubuntu-latest
+build:
+runs-on: ubuntu-latest
+defaults:
 
-    steps:
-    - name: npm install, build, and test
-      run: |
-        using: 'docker'
-        image: 'Dockerfile'
-
-    - name: 'Deploy to Azure Web App'
-      uses: azure/webapps-deploy@v1
-      with:
-        app-name: 'transfer-jpcatholic-node'
-        slot-name: 'production'
-        publish-profile: ${{ secrets.AzureAppService_PublishProfile_ba033a7f7a8c4154beaa6bacae656180 }}
-        package: .
+  steps:
+    -name: Build docker image
+     run: docker build . --file Dockerfile
