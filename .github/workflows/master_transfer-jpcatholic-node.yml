@@ -10,4 +10,4 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - name: Build docker image
-      run: docker build
+      run: docker build .
